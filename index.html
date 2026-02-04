@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+  <meta charset="UTF-8">
+  <title>Dual.Infodose · Card Origem · Apps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<meta name="theme-color" content="#050816">
+  
+<link rel="stylesheet" href="./css/main.css"></head>
+
+<body>
+  <div class="app">
+
+    <header class="app-header">
+      <div class="brand-pill">Dual · Infodose</div>
+      <div class="header-actions">
+        <button class="console-toggle" id="consoleToggle" title="Abrir Console">◎</button>
+        <button class="mode-pill" type="button">
+          <span class="dot"></span>
+          <span>Modo 3·6·9</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- CARD ÚNICO (origem) -->
+    <section class="card-origem" id="cardOrigem">
+      <div class="orb-wrap">
+        <div class="orb-core"></div>
+        <div class="orb-ring"></div>
+      </div>
+
+      <div id="timeNow" class="time-main">--:--</div>
+      <div id="timeSub" class="time-sub"></div>
+
+      <div class="input-row">
+        <label for="intentInput">Intenção / nome / vibração</label>
+        <input id="intentInput" placeholder="Escreve o que você quer ativar hoje...">
+      </div>
+
+      <div class="btn-row">
+        <button class="btn" id="btnDocs" type="button">
+          <span class="emoji">📂</span>
+          <span>Docs &amp; Apps</span>
+        </button>
+        <button class="btn" id="btnAddApp" type="button">
+          <span class="emoji">＋</span>
+          <span>Novo app / stack</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Lista de Apps / Stacks (Play Store local) -->
+    <section class="apps-wrapper">
+      <div class="apps-header-row">
+        <div class="apps-title">Meus apps / stacks</div>
+        <div class="apps-count" id="appsCount">0 apps</div>
+      </div>
+      <div id="appsList"></div>
+    </section>
+
+    <!-- Deck de iframes (apps abertos) -->
+    <section class="iframe-deck" id="iframeDeck"></section>
+
+    <!-- Log interno escondido (origem pro espelho do console) -->
+    <div id="logBox"></div>
+  </div>
+
+  <!-- Painel Console -->
+  <div class="console-panel" id="consolePanel" aria-hidden="true">
+    <div class="console-panel-inner">
+      <div class="console-header">
+        <div class="console-title">Console · Card Único + Apps</div>
+        <button class="console-close" id="consoleClose" type="button">✕</button>
+      </div>
+
+      <div class="console-body">
+        <div class="console-section">
+          <h3>Visibilidade &amp; grupos</h3>
+          <small>Esconde o card de origem e abre grupos de apps pelo nome.</small>
+          <div class="console-actions-row">
+            <button class="console-btn" id="toggleOrigemBtn" type="button">Ocultar/Mostrar card</button>
+            <button class="console-btn" id="openGroupBtn" type="button">Abrir grupo</button>
+          </div>
+        </div>
+
+        <div class="console-section">
+          <h3>Local Storage</h3>
+          <small>Intenção + lista de apps ficam em <code class="di-key">di_origin_*</code> — integração com <code class="di-key">di_system_dual_apps</code>.</small>
+          <div class="console-actions-row">
+            <button class="console-btn" data-ls-action="dump" type="button">Ver chaves</button>
+            <button class="console-btn" data-ls-action="clear-intent" type="button">Limpar intenção</button>
+            <button class="console-btn" data-ls-action="clear-apps" type="button">Limpar apps</button>
+          </div>
+          <pre class="console-ls-dump" id="consoleLsDump"></pre>
+        </div>
+
+        <div class="console-section">
+          <h3>Log místico</h3>
+          <small>Últimos eventos: intenção, apps criados, grupos abertos.</small>
+          <div class="console-log-mirror" id="consoleLogMirror"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  
+
+<script type="module" src="./js/main.js"></script></body></html>
