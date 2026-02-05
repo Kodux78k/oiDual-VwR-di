@@ -582,3 +582,6 @@
     /* highlight para chaves di_ */
     .di-key { color: #7ac6ff; font-weight:600; }
   
+.card-origem.is-hidden {
+  display: none;
+}
